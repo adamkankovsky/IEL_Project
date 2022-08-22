@@ -1,0 +1,101 @@
+\section{Příklad 3}
+% Jako parametr zadejte skupinu (A-H)
+\tretiZadani{E}
+	\\Podle metody uzlových napetí si sestavíme rovnice proudů a to tak, že uzel A je tam kde začíná šipka ${U_A}$, uzel B tam kde začíná šipka napětí ${U_B}$ a uzel C tam kde začíná šipka napětí ${U_C}$. Využíváme II. Kirchoffův zákon.
+	\begin{gather*}
+		\text{Pro uzel A: }
+		I_{R_{1}} + I_{R_{3}} - I_{R_{2}} = 0 \\
+		\text{Pro uzel B: }
+		I_{1} - I_{R_{3}} + I_{R_{5}} = 0 \\
+		\text{Pro uzel C: }
+		I_{2} - I_{1} - I_{R_{4}} + I_{R_{5}} = 0
+	\end{gather*}
+	Nejdříve si ještě musíme určit rovnice proudů protékající jednotlivými rezistory. Na základě napětí ${U_A}$, ${U_B}$ a ${U_C}$.
+	\begin{gather*}
+		I_{R_{1}} =\frac{U - U_A}{R_1}\\
+        I_{R2_{2}} =\frac{U_A}{R_2}\\
+        I_{R_{3}} =\frac{U_B - U_A}{R_3}\\
+        I_{R_{4}} =\frac{U_C}{R_4}\\
+        I_{R_{5}} =\frac{U_B - U_C}{R_5}\\
+	\end{gather*}
+    Nyní si dosadíme od rovnic hodnoty:
+    \begin{gather*}
+		\frac{135 - U_A}{52} + \frac{U_B - U_A}{52} - \frac{U_A}{42} = 0\\
+        0.55 - \frac{U_B - U_A}{52} - \frac{U_B - U_C}{21} = 0\\
+        0.65 - 0.55 - \frac{U_C}{42} + \frac{U_B - U_C}{21} = 0\\
+	\end{gather*}
+	Rovnice si lehce upravíme: 
+    \begin{gather*}
+		\frac{-U_A}{52} + \frac{U_B}{52} - \frac{U_A}{52} - \frac{U_A}{42} = -\frac{135}{52}\\
+        \frac{U_A}{52} - \frac{U_B}{52} - \frac{U_B}{21} + \frac{U_C}{21} = -0.55\\
+        \frac{U_B}{21} - \frac{U_C}{21} - \frac{U_C}{42} = -0.1\\
+	\end{gather*}
+    Rovnice si upravíme tak, že napětí ${U_A}$, ${U_B}$ a ${U_C}$ osamostaníme, abychom lehce vytvořili matici.
+    \begin{gather*}
+		-U_A \cdot(\frac{1}{42} + \frac{1}{52} + \frac{1}{52}) + U_B \cdot \frac{1}{52} = -\frac{135}{52}\\
+        U_A \cdot \frac{1}{52} - U_B \cdot (\frac{1}{21} + \frac{1}{52}) + U_C \cdot \frac{1}{21} = - 0.55\\
+        U_B \cdot \frac{1}{21} - U_C \cdot (\frac{1}{21} + \frac{1}{42}) = -0.1\\
+	\end{gather*}
+    //Vytvoříme si matici a vypočítáme jednotlivé hodnoty napětí. Odstraníme zlomky pronásobením.
+    \begin{gather*}
+		\begin{pmatrix}
+        \begin{array}{ccc|c}
+            -42-42-52 & 42 & 0 &  -5670 \\
+            21 & -21-52 & 52  &  -600.6 \\
+            0 & 42 & -63 & -88.2 \\
+        \end{array}
+        \end{pmatrix}
+	\end{gather*}
+	\begin{gather*}
+		\begin{pmatrix}
+        \begin{array}{ccc|c}
+            -136 & 42 & 0 &  -5670 \\
+            21 & -73 & 52  &  -600.6 \\
+            0 & 42 & -63 & -88.2 \\
+        \end{array}
+        \end{pmatrix}
+	\end{gather*}
+    Budeme používat Gaussovu eliminační metodu. Upravíme matici na trojúhelníkový tvar.
+    \begin{gather*}
+		\begin{pmatrix}
+        \begin{array}{ccc|c}
+            -136 & 42 & 0 &  -5 670 \\
+            0 & 42 & -63  &  -\frac{441}{5} \\
+            0 & 0 & -\frac{6497}{136} & -\frac{1098741}{680} \\
+        \end{array}
+        \end{pmatrix}
+	\end{gather*}
+	\newpage
+    Nyní si vypočítáme jednotlivá napětí.
+    \begin{gather*}
+    \text{Napětí ${U_C}$:} \\
+	(-\frac{6497}{136}) \cdot U_C  = -\frac{1098741}{680} \\
+	4417960 \cdot U_C = 149428776 \\
+	U_C = \frac{1098741}{32485}
+	\end{gather*}
+	\begin{gather*}
+    \text{Napětí ${U_B}$:} \\
+    42 \cdot U_B - 63 \cdot U_C  = -\frac{441}{5} \\
+    42 \cdot U_B - 63 \cdot \frac{1098741}{32485}  = -\frac{441}{5} \\
+    1364370 \cdot U_B - 69220683 = -2865177 \\
+    1364370 \cdot U_B = 66355506 \\
+    U_B = \frac{1579893}{32485}
+	\end{gather*}
+	\begin{gather*}
+    \text{Napětí ${U_A}$:} \\
+    -136 \cdot U_A + 42 \cdot U_B - 0 \cdot U_C  = -5670 \\
+    -136 \cdot U_A + 42 \cdot \frac{1579893}{32485}  = -5670 \\
+    -4417960 \cdot U_A + 66355506 = -184189950 \\
+    -4417960 \cdot U_A = -250545456 \\
+    U_A = \frac{1842246}{32485}
+	\end{gather*}
+	\begin{gather*}
+    U_A = \frac{1842246}{32485} \doteq 56.71067V\\
+    U_B = \frac{1579893}{32485} \doteq 48.63454V\\
+    U_C = \frac{1098741}{32485} \doteq 33.82303V
+	\end{gather*}
+	Nyní můžeme vypočítat napětí $U_{R_{2}}$ a proud $I_{R_{2}}$.
+	\begin{gather*}
+	U_{A} = U_{R_{2}}\\
+	I_{R_{2}} =\frac{U_A}{R_2} = \frac{56.71067}{52} = 1.09059A \\
+	\end{gather*}

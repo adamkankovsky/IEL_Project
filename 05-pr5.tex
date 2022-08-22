@@ -1,0 +1,88 @@
+\section{Příklad 5}
+\patyZadani{D}
+Vyjádříme si všechny vztahy v obvodu:\\
+\begin{gather*}
+	i_L = \frac{u_R}{R} \qquad i = i_L = i_R\\
+    u_R + u_L - U = 0\\
+    u'_{L} = \frac{u_L}{L}\\
+\end{gather*}
+Zavedeme si počáteční podmínku:\\
+\begin{gather*}
+    u'_{L}(0) = 12A
+\end{gather*}
+Nyní využijeme vyjádřené vztahy:\\
+\begin{gather*}
+    Ri_L + Li'_L = U\\
+    i'_L = \frac{1}{L} \cdot (U - Ri_L) 
+\end{gather*}
+Očekávané řešení:\\
+\begin{gather*}
+    i_L(t) = K(t) \cdot e^{\lambda t}
+\end{gather*}
+Řešíme charakteristické rovnice ( ${i'_L}$ = ${\lambda}$ , ${i_L}$ = 1):\\
+\begin{gather*}
+    R + L \lambda = 0\\
+    \lambda = -\frac{R}{L} = -\frac{25}{5}
+\end{gather*}
+Dosadíme ${ \lambda}$ do očekávaného řešení:\\
+\begin{gather*}
+    i_L(t) = K(t) \cdot e^{\lambda t}\\
+    i_L(t) = K(t) \cdot e^{-\frac{R}{L} t}
+\end{gather*}
+Provedeme derivace získané rovnice:
+\begin{gather*}
+    i'_L(t) = K'(t) \cdot e^{-\frac{R}{L} t} + K(t) \cdot \bigg(-\frac{R}{L}\bigg) \cdot e^{-\frac{R}{L} t}
+\end{gather*}
+Dosadíme rovnice do námi sestavené diferenciální rovnice:
+\begin{gather*}
+    Ri_L + Li'_L = U\\
+    R \cdot K(t) \cdot e^{-\frac{R}{L}t} + L \cdot \bigg(K'(t) \cdot e^{-\frac{R}{L}t} + K(t) \cdot K(t) \cdot \bigg(-\frac{R}{L}\bigg) \cdot e^{-\frac{R}{L}t} \bigg) = U\\
+    R \cdot K(t) \cdot e^{-\frac{R}{L}t} + L \cdot K'(t) \cdot e^{-\frac{R}{L}t} + L \cdot K(t) \cdot \bigg(-\frac{R}{L}\bigg) \cdot e^{-\frac{R}{L}t} = U\\
+    R \cdot K(t) \cdot e^{-\frac{R}{L}t} + L \cdot K'(t) \cdot e^{-\frac{R}{L}t} - R \cdot K(t) \cdot e^{-\frac{R}{L}t} = U\\
+    L \cdot K'(t) \cdot e^{-\frac{R}{L}t} = U\\
+    K'(t) \cdot e^{-\frac{R}{L}t} = \frac{U}{L}\\
+    K'(t) = \frac{U}{L} \cdot e^{-\frac{R}{L}t}
+\end{gather*}
+Rovnici K'(t) z integrujeme abychom zjistili K(t):
+\begin{gather*}
+    K(t) = \int \frac{U}{L} \cdot e^{\frac{R}{L}t}dt\\
+    K(t) = \frac{U \cdot e^{-\frac{R}{L}t}}{R} + k
+\end{gather*}
+Dosadíme K(t) do očekávaného řešení:
+\begin{gather*}
+    i_L (t) = \bigg( \frac{U \cdot e^{\frac{R}{L}t}}{R} + k \bigg) \cdot e^{\lambda t}\\
+    i_L (t) = \frac{U}{R} + k \cdot e^{-\frac{R}{L}t} \qquad (1)
+\end{gather*}
+Dále dosadíme počáteční podmínku ${i_L}$ (0) = 12A:
+\begin{gather*}
+    12 = \frac{U}{R} + k \cdot e^{-\frac{R}{L}t}\\
+    12 = \frac{U}{R} + k\\
+    k  = 12 - \frac{U}{R} 
+\end{gather*}
+Dosadíme k do rovnice (1):
+\begin{gather*}
+    i_L (t) = \frac{U}{R} + k \cdot e^{-\frac{R}{L}t}
+    i_L (t) = \frac{U}{R} + \bigg( 12 - \frac{U}{R} \bigg) e^{-\frac{R}{L}t}
+\end{gather*}
+Dosadíme hodnoty:
+\begin{gather*}
+    i_L (t) = \frac{25}{25} + \bigg( 12 - \frac{25}{25} \bigg) e^{-\frac{25}{5}t}
+\end{gather*}
+Hledaná rovnice tedy je:
+\begin{gather*}
+    i_L (t) = 1 + 11 e^{-5t}
+\end{gather*}
+a)
+\begin{gather*}
+    t = 0s : \qquad i_L (0) = \frac{U}{R} + 12 - \frac{U}{R} = 12
+\end{gather*}
+b) Dosadíme ${i_L}$ a ${i'_L}$ do diferenciální rovnice prvního řádu a upravíme:
+\begin{gather*}
+    Ri_L + Li'_L = U
+    i_L (t) = \frac{U}{R} + \bigg( 12 - \frac{U}{R} \bigg) \cdot e^{-\frac{R}{L}t}\\
+    i'_L(t) = - \bigg( 12 - \frac{U}{R} \bigg) \cdot \frac{R}{L} \cdot e^{-\frac{R}{L}t}\\\\
+    R \cdot \bigg[ \frac{U}{R} + \bigg( 12 - \frac{U}{R} \bigg) \cdot e^{-\frac{R}{L}t} \bigg] + L \cdot \bigg[ - \bigg( 12 - \frac{U}{R} \bigg) \cdot \frac{R}{L} \cdot e^{-\frac{R}{L}t} \bigg] = U\\
+    U + R \cdot \bigg( 12 - \frac{U}{R} \bigg) \cdot e^{-\frac{R}{L}t} - R \cdot \bigg( 12 - \frac{U}{R} \bigg) e^{-\frac{R}{L}t} = U\\
+    U = U\\
+    0 = 0
+\end{gather*}

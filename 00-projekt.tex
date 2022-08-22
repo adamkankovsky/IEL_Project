@@ -1,0 +1,58 @@
+%%%%% Projekt z předmětu IEL %%%% 
+%% Autor: Adam Kaňkovský
+
+\documentclass[]{fitiel} % dokumenty v češtině, implicitní
+% \documentclass[slovak]{fitiel} % odkomentujte pro dokumenty ve slovenštině
+% \documentclass[english]{fitiel} % odkomentujte pro dokumenty v angličtině
+
+% implicitní cesta k obrázkům
+\graphicspath{{fig/}}
+
+% hlavička 
+% příkaz logo - vkládá logo fakulty dle zvoleného jazyka
+\title{\logo\\IEL -- protokol k projektu}
+\author{Adam Kaňkovský \\ xkanko00}
+\date{\today} % today - dnešní datum
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			\textsc{\LARGE Vysoké Učení Technické v Brně} \\[0.5cm]
+			{\LARGE Fakulta informačních technologií}
+
+			\begin{figure}[H]
+				\center\includegraphics[width=0.5\linewidth]{fig/logo_cz.png}
+			\end{figure}
+
+			\vspace{3cm}
+
+			\textsc{\LARGE Elektronika pro informační technologie} \\[0.5cm]
+			\textsc{\LARGE 2020/2021} \\[3.5cm]
+
+			\textbf{{\LARGE Semestrální projekt}}
+		\end{center}
+		\vfill
+		\begin{flushleft} 
+			\large
+			Adam Kaňkovský (xkanko00)
+			\hfill
+			Brno, \today
+		\end{flushleft}
+	\end{titlepage}
+
+	\newpage
+
+	\tableofcontents
+	
+	\newpage
+
+	%% vložení jednotlivých příkladů
+	\input{01-pr1.tex} \newpage
+	\input{02-pr2.tex} \newpage
+	\input{03-pr3.tex} \newpage
+	\input{05-pr5.tex} \newpage
+	
+	%% vložení tabulky s přehledem výsledků
+	\input{06-tab.tex}
+	
+\end{document}
